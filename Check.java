@@ -8,7 +8,7 @@ public class Check {
             for (int j = 0; j < 3; j++) {
                 if (comNumList.get(i).equals(userNumList.get(j))) {
                     result.increaseBall();
-                    if (comNumList.indexOf(comNumList.get(i)) == userNumList.indexOf(userNumList.get(j))) {
+                    if (i == j) {
                         result.decreaseBall();
                         result.increaseStrike();
                     }
