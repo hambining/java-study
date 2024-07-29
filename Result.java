@@ -3,6 +3,10 @@ public class Result {
     public static int ball;
     public static int again;
 
+    public Result() {
+        strike = 0;
+        ball = 0;
+    }
 
     public int getBall() {
         return ball;

@@ -23,9 +23,6 @@ public class Baseball {
                 // set userNumList
                 userNumList.addNum(input.getUserInput());
 
-                // initialize ball & strike count
-                result.setBall(0);
-                result.setStrike(0);
 
                 // Count ball & strike
                 check.count(comNumList.getNumList(), userNumList.getNumList());
