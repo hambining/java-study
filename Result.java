@@ -31,8 +31,4 @@ public class Result {
     public void increaseStrike() {
         strike++;
     }
-
-    public void setAgain(int again) {
-        this.again = again;
-    }
 }
