@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class UserNumList extends NumList {
+public class UserNumList implements NumList {
     ArrayList<Integer> userNumList;
     public UserNumList() {
         userNumList = new ArrayList<>(3);

@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class ComNumList extends NumList{
+public class ComNumList implements NumList{
     ArrayList<Integer> comNumList;
 
     public ComNumList() {
