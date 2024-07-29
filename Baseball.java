@@ -19,23 +19,20 @@ public class Baseball {
             }
             System.out.println();
 
-            while (true) {
-                // Get 3 numbers from user
-                Messages.INPUT_NUMBER.print();
+            // Get 3 numbers from user
+            Messages.INPUT_NUMBER.print();
 
-                // set userNumList
-                userNumList.addNum(input.getUserInput());
+            // set userNumList
+            userNumList.addNum(input.getUserInput());
 
-                // Count ball & strike
-                check.count(comNumList.getNumList(), userNumList.getNumList());
+            // Count ball & strike
+            check.count(comNumList.getNumList(), userNumList.getNumList());
 
-                // print game re-start/end
-                gameResult.getGameResult(result.getStrike(), result.getBall(), comNumList, userNumList);
+            // print game re-start/end
+            gameResult.getGameResult(result.getStrike(), result.getBall(), comNumList, userNumList);
 
-                Result.setBall(0);
-                Result.setStrike(0);
-                break;
-            }
+            Result.setBall(0);
+            Result.setStrike(0);
         }
     }
 
