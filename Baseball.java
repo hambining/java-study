@@ -1,4 +1,7 @@
 public class Baseball {
+    public Baseball() {
+    }
+
     public static void main(String[] args) {
         Result result = new Result();
         ComNumList comNumList = new ComNumList();
@@ -6,6 +9,7 @@ public class Baseball {
         UserInput input = new UserInput();
         Check check = new Check();
         RandomNum randomNum = new RandomNum();
+        GameResult gameResult = new GameResult();
 
 
         while (true) {
@@ -23,25 +27,14 @@ public class Baseball {
                 // set userNumList
                 userNumList.addNum(input.getUserInput());
 
-
                 // Count ball & strike
                 check.count(comNumList.getNumList(), userNumList.getNumList());
 
                 // print game re-start/end
-                if (result.getStrike() == 0 && result.getBall() == 0) {
-                    Messages.NOTHING.println();
-                } else if (result.getStrike() == 3) {
-                    Messages.END_GAME.println();
-                    Messages.RESTART_GAME.print();
-                    result.setAgain(input.getUserInput());
-                    comNumList.clear();
-                    userNumList.clear();
-                    break;
-                } else {
-                    Messages.PRINT_BALL.printNum(result.getBall());
-                    Messages.PRINT_STRIKE.printNum(result.getStrike());
-                    System.out.println();
-                }
+                gameResult.getGameResult(result.getStrike(), result.getBall());
+
+                // Initialize comNumList & userNumList
+                comNumList.clear();
                 userNumList.clear();
             }
         }
