@@ -32,14 +32,6 @@ public class Result {
         strike++;
     }
 
-    public void setBall(int ball) {
-        this.ball = ball;
-    }
-
-    public void setStrike(int strike) {
-        this.strike = strike;
-    }
-
     public void setAgain(int again) {
         this.again = again;
     }
