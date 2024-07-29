@@ -11,10 +11,9 @@ public class Baseball {
         RandomNum randomNum = new RandomNum();
         GameResult gameResult = new GameResult();
 
-
+        Messages.START_GAME.println();
         while (true) {
             if (result.getAgain() == 2) break;
-            Messages.START_GAME.println();
             while (comNumList.getNumList().size() < 3) {
                 comNumList.addNum(randomNum.getRandomNum());
             }
@@ -31,11 +30,11 @@ public class Baseball {
                 check.count(comNumList.getNumList(), userNumList.getNumList());
 
                 // print game re-start/end
-                gameResult.getGameResult(result.getStrike(), result.getBall());
+                gameResult.getGameResult(result.getStrike(), result.getBall(), comNumList, userNumList);
 
-                // Initialize comNumList & userNumList
-                comNumList.clear();
-                userNumList.clear();
+                Result.setBall(0);
+                Result.setStrike(0);
+                break;
             }
         }
     }
