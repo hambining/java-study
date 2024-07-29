@@ -6,6 +6,7 @@ public class Result {
     public Result() {
         strike = 0;
         ball = 0;
+        again = 0;
     }
 
     public int getBall() {
@@ -30,5 +31,17 @@ public class Result {
 
     public void increaseStrike() {
         strike++;
+    }
+
+    public static void setStrike(int strike) {
+        Result.strike = strike;
+    }
+
+    public static void setBall(int ball) {
+        Result.ball = ball;
+    }
+
+    public static void setAgain(int again) {
+        Result.again = again;
     }
 }
