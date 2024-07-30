@@ -26,4 +26,8 @@ public class ComNumList implements NumList{
         return comNumList;
     }
 
+    @Override
+    public int get(int index) {
+        return comNumList.get(index);
+    }
 }
