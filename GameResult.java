@@ -1,14 +1,16 @@
 public class GameResult {
     UserInput userInput = new UserInput();
 
-    public void getGameResult(int strike, int ball, ComNumList comNumList, UserNumList userNumList) {
+    public void getGameResult(Result result, ComNumList comNumList, UserNumList userNumList) {
+        int strike = result.getStrike();
+        int ball = result.getBall();
         if (strike == 0 && ball == 0) {
             Messages.NOTHING.println();
         } else if (strike == 3) {
             Messages.END_GAME.println();
             Messages.RESTART_GAME.print();
 
-            Result.setAgain(userInput.getUserInput());
+            result.setAgain(userInput.getUserInput());
             comNumList.clear();
             userNumList.clear();
         } else {

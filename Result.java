@@ -1,7 +1,7 @@
 public class Result {
     private int strike;
     private int ball;
-    public static int again;
+    private int again;
 
     public Result() {
         strike = 0;
@@ -41,7 +41,7 @@ public class Result {
         this.ball = 0;
     }
 
-    public static void setAgain(int again) {
-        Result.again = again;
+    public void setAgain(int again) {
+        this.again = again;
     }
 }

@@ -26,7 +26,7 @@ public class Baseball {
             check.count(comNumList.getNumList(), userNumList.getNumList(), result);
 
             // print game re-start/end
-            gameResult.getGameResult(result.getStrike(), result.getBall(), comNumList, userNumList);
+            gameResult.getGameResult(result, comNumList, userNumList);
 
             result.initBall();
             result.initStrike();
