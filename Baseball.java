@@ -1,7 +1,4 @@
 public class Baseball {
-    public Baseball() {
-    }
-
     public static void main(String[] args) {
         Result result = new Result();
         ComNumList comNumList = new ComNumList();
