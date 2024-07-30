@@ -1,6 +1,6 @@
 public class Result {
-    public static int strike;
-    public static int ball;
+    private int strike;
+    private int ball;
     public static int again;
 
     public Result() {
@@ -33,12 +33,12 @@ public class Result {
         strike++;
     }
 
-    public static void setStrike(int strike) {
-        Result.strike = strike;
+    public void initStrike() {
+        this.strike = 0;
     }
 
-    public static void setBall(int ball) {
-        Result.ball = ball;
+    public void initBall() {
+        this.ball = 0;
     }
 
     public static void setAgain(int again) {

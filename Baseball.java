@@ -28,8 +28,8 @@ public class Baseball {
             // print game re-start/end
             gameResult.getGameResult(result.getStrike(), result.getBall(), comNumList, userNumList);
 
-            Result.setBall(0);
-            Result.setStrike(0);
+            result.initBall();
+            result.initStrike();
         }
     }
 
