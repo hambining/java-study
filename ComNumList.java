@@ -28,6 +28,6 @@ public class ComNumList implements NumList{
 
     @Override
     public Integer getNum(int index) {
-        return Integer.valueOf(comNumList.get(index));
+        return comNumList.get(index);
     }
 }
