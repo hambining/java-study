@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class ComNumList extends NumList{
+public class ComNumList implements NumList{
     ArrayList<Integer> comNumList;
 
     public ComNumList() {
@@ -26,4 +26,8 @@ public class ComNumList extends NumList{
         return comNumList;
     }
 
+    @Override
+    public Integer getNum(int index) {
+        return comNumList.get(index);
+    }
 }

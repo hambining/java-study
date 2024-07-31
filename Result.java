@@ -1,8 +1,13 @@
 public class Result {
-    public static int strike;
-    public static int ball;
-    public static int again;
+    private int strike;
+    private int ball;
+    private int again;
 
+    public Result() {
+        strike = 0;
+        ball = 0;
+        again = 0;
+    }
 
     public int getBall() {
         return ball;
@@ -28,12 +33,12 @@ public class Result {
         strike++;
     }
 
-    public void setBall(int ball) {
-        this.ball = ball;
+    public void initStrike() {
+        this.strike = 0;
     }
 
-    public void setStrike(int strike) {
-        this.strike = strike;
+    public void initBall() {
+        this.ball = 0;
     }
 
     public void setAgain(int again) {

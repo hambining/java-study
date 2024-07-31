@@ -1,11 +1,8 @@
-import java.util.ArrayList;
-
 public class Check {
-    Result result = new Result();
-    public void count(ArrayList<Integer> comNumList, ArrayList<Integer> userNumList) {
+    public void count(ComNumList comNumList, UserNumList userNumList, Result result) {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                if (comNumList.get(i).equals(userNumList.get(j))) {
+                if ((comNumList.getNum(i)).equals(userNumList.getNum(j))) {
                     result.increaseBall();
                     if (i == j) {
                         result.decreaseBall();

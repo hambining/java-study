@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class UserNumList extends NumList {
+public class UserNumList implements NumList {
     ArrayList<Integer> userNumList;
     public UserNumList() {
         userNumList = new ArrayList<>(3);
@@ -22,5 +22,10 @@ public class UserNumList extends NumList {
     @Override
     public ArrayList<Integer> getNumList() {
         return userNumList;
+    }
+
+    @Override
+    public Integer getNum(int index) {
+        return userNumList.get(index);
     }
 }
