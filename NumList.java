@@ -5,5 +5,5 @@ public interface NumList {
     void clear();
     ArrayList<Integer> getNumList();
 
-    int get(int index);
+    int getNum(int index);
 }

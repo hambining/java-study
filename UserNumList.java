@@ -25,7 +25,7 @@ public class UserNumList implements NumList {
     }
 
     @Override
-    public int get(int index) {
+    public int getNum(int index) {
         return userNumList.get(index);
     }
 }
