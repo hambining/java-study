@@ -10,6 +10,9 @@ public class Baseball {
 
         Messages.START_GAME.println();
         while (result.getAgain() != 2) {
+
+            result.initBallAndStrike();
+
             while (comNumList.getNumList().size() < 3) {
                 comNumList.addNum(randomNum.getRandomNum());
             }
@@ -26,9 +29,6 @@ public class Baseball {
 
             // print game re-start/end
             gameResult.getGameResult(result, comNumList, userNumList);
-
-            result.initBall();
-            result.initStrike();
         }
     }
 
