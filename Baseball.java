@@ -9,8 +9,7 @@ public class Baseball {
         GameResult gameResult = new GameResult();
 
         Messages.START_GAME.println();
-        while (true) {
-            if (result.getAgain() == 2) break;
+        while (result.getAgain() != 2) {
             while (comNumList.getNumList().size() < 3) {
                 comNumList.addNum(randomNum.getRandomNum());
             }
