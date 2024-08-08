@@ -16,10 +16,7 @@ public class GameSetting {
             result.initBallAndStrike();
 
             // Add 3 random numbers to comNumList
-            while (comNumList.getNumList().size() < 3) {
-                comNumList.addNum(randomNum.getRandomNum());
-            }
-            System.out.println();
+            comNumList.setComNumList(randomNum);
 
             // Get 3 numbers from user
             Messages.INPUT_NUMBER.print();

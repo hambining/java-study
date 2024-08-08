@@ -7,6 +7,13 @@ public class ComNumList implements NumList{
         comNumList = new ArrayList<>(3);
     }
 
+    public void setComNumList(RandomNum randomNum) {
+        // Add 3 random numbers to comNumList
+        while (comNumList.size() < 3) {
+            addNum(randomNum.getRandomNum());
+        }
+        System.out.println();
+    }
 
     @Override
     public void addNum(int num) {
