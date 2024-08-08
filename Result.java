@@ -33,12 +33,9 @@ public class Result {
         strike++;
     }
 
-    public void initStrike() {
-        this.strike = 0;
-    }
-
-    public void initBall() {
+    public void initBallAndStrike() {
         this.ball = 0;
+        this.strike = 0;
     }
 
     public void setAgain(int again) {
