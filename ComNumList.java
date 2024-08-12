@@ -4,7 +4,7 @@ public class ComNumList implements NumList{
     ArrayList<Integer> comNumList;
 
     public ComNumList() {
-        comNumList = new ArrayList<>(3);
+        comNumList = new ArrayList<>(GameSetting.SIZE_OF_LIST);
     }
 
     public void setComNumList(RandomNum randomNum) {

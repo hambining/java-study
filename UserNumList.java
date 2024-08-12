@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class UserNumList implements NumList {
     ArrayList<Integer> userNumList;
     public UserNumList() {
-        userNumList = new ArrayList<>(3);
+        userNumList = new ArrayList<>(GameSetting.SIZE_OF_LIST);
     }
 
     @Override
