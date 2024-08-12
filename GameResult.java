@@ -1,7 +1,5 @@
 public class GameResult {
-    UserInput userInput = new UserInput();
-
-    public void getGameResult(Result result, ComNumList comNumList, UserNumList userNumList) {
+    public void getGameResult(Result result, ComNumList comNumList, UserNumList userNumList, UserInput userInput) {
         int strike = result.getStrike();
         int ball = result.getBall();
         if (strike == 0 && ball == 0) {

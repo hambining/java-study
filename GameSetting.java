@@ -31,7 +31,7 @@ public class GameSetting {
             check.count(comNumList, userNumList, result);
 
             // print game re-start/end
-            gameResult.getGameResult(result, comNumList, userNumList);
+            gameResult.getGameResult(result, comNumList, userNumList, input);
         }
     }
 }
