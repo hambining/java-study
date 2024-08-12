@@ -8,10 +8,13 @@ public class GameSetting {
     RandomNum randomNum = new RandomNum();
     GameResult gameResult = new GameResult();
 
+    public static final int SIZE_OF_LIST = 3;
+    public static final int END_GAME = 2;
+
     public void startGame() {
         Messages.START_GAME.println();
 
-        while (result.getAgain() != 2) {
+        while (result.getAgain() != END_GAME) {
 
             result.initBallAndStrike();
 

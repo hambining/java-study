@@ -9,7 +9,7 @@ public class ComNumList implements NumList{
 
     public void setComNumList(RandomNum randomNum) {
         // Add 3 random numbers to comNumList
-        while (comNumList.size() < 3) {
+        while (comNumList.size() < GameSetting.SIZE_OF_LIST) {
             addNum(randomNum.getRandomNum());
         }
         System.out.println();
