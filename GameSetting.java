@@ -22,10 +22,7 @@ public class GameSetting {
             comNumList.setComNumList(randomNum);
 
             // Get 3 numbers from user
-            Messages.INPUT_NUMBER.print();
-
-            // Set userNumList
-            userNumList.addNum(input.getUserInput());
+            userNumList.setUserNumList(input);
 
             // Count ball & strike
             check.count(comNumList, userNumList, result);

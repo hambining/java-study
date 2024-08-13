@@ -6,6 +6,11 @@ public class UserNumList implements NumList {
         userNumList = new ArrayList<>(GameSetting.SIZE_OF_NUMBER_LIST);
     }
 
+    public void setUserNumList(UserInput input) {
+        Messages.INPUT_NUMBER.print();
+        addNum(input.getUserInput());
+    }
+
     @Override
     public void addNum(int num) {
         while (num > 0) {
