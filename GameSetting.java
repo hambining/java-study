@@ -8,7 +8,7 @@ public class GameSetting {
     RandomNum randomNum = new RandomNum();
     GameResult gameResult = new GameResult();
 
-    public static final int SIZE_OF_LIST = 3;
+    public static final int SIZE_OF_NUMBER_LIST = 3;
     public static final int END_GAME = 2;
 
     public void startGame() {
