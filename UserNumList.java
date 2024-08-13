@@ -20,11 +20,6 @@ public class UserNumList implements NumList {
     }
 
     @Override
-    public ArrayList<Integer> getNumList() {
-        return userNumList;
-    }
-
-    @Override
     public Integer getNum(int index) {
         return userNumList.get(index);
     }
