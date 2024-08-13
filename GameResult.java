@@ -1,11 +1,9 @@
 public class GameResult {
-    UserInput userInput = new UserInput();
-
-    public void getGameResult(Result result, ComNumList comNumList, UserNumList userNumList) {
+    public void getGameResult(Result result, ComNumList comNumList, UserNumList userNumList, UserInput userInput) {
         int strike = result.getStrike();
         int ball = result.getBall();
         if (strike == 0 && ball == 0) {
-            Messages.NOTHING.println();
+            Messages.NOTHING.print();
         } else if (strike == 3) {
             Messages.END_GAME.println();
             Messages.RESTART_GAME.print();
