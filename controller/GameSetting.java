@@ -10,9 +10,9 @@ public class GameSetting {
     UserNumList userNumList = new UserNumList();
     UserInput input = new UserInput();
     Check check = new Check();
-    RandomNum randomNum = new RandomNum();
     GameResult gameResult = new GameResult();
     Messages messages;
+    NumList numList = new NumList();
 
     public static final int SIZE_OF_NUMBER_LIST = 3;
     public static final int END_GAME = 2;
@@ -24,11 +24,7 @@ public class GameSetting {
 
             result.initBallAndStrike();
 
-            // Add 3 random numbers to comNumList
-            comNumList.setComNumList(randomNum);
-
-            // Get 3 numbers from user
-            userNumList.setUserNumList(input);
+            numList.setNumList(comNumList, userNumList);
 
             // Count ball & strike
             check.count(comNumList, userNumList, result);
