@@ -1,3 +1,8 @@
+package controller;
+
+import model.NumList;
+import view.Messages;
+
 import java.util.ArrayList;
 
 public class UserNumList implements NumList {

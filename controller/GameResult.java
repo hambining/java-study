@@ -1,3 +1,8 @@
+package controller;
+
+import model.Result;
+import view.Messages;
+
 public class GameResult {
     public void getGameResult(Result result, ComNumList comNumList, UserNumList userNumList, UserInput userInput) {
         int strike = result.getStrike();

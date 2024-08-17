@@ -1,6 +1,9 @@
+package controller;
+import model.NumList;
+
 import java.util.ArrayList;
 
-public class ComNumList implements NumList{
+public class ComNumList implements NumList {
     ArrayList<Integer> comNumList;
 
     public ComNumList() {

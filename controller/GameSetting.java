@@ -1,3 +1,8 @@
+package controller;
+
+import model.Result;
+import view.Messages;
+
 public class GameSetting {
     // Create objects here
     Result result = new Result();
@@ -7,12 +12,13 @@ public class GameSetting {
     Check check = new Check();
     RandomNum randomNum = new RandomNum();
     GameResult gameResult = new GameResult();
+    Messages messages;
 
     public static final int SIZE_OF_NUMBER_LIST = 3;
     public static final int END_GAME = 2;
 
     public void startGame() {
-        Messages.START_GAME.println();
+        messages.START_GAME.println();
 
         while (result.getAgain() != END_GAME) {
 
