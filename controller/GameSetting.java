@@ -1,7 +1,10 @@
 package controller;
 
+import model.ComNumList;
 import model.Result;
+import model.UserNumList;
 import view.Messages;
+import view.UserInput;
 
 public class GameSetting {
     // Create objects here

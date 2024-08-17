@@ -1,6 +1,7 @@
-package controller;
+package model;
 
-import model.NumList;
+import controller.GameSetting;
+import view.UserInput;
 import view.Messages;
 
 import java.util.ArrayList;

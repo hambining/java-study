@@ -1,6 +1,8 @@
 package controller;
 
+import model.ComNumList;
 import model.Result;
+import model.UserNumList;
 
 public class Check {
     public void count(ComNumList comNumList, UserNumList userNumList, Result result) {

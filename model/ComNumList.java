@@ -1,5 +1,6 @@
-package controller;
-import model.NumList;
+package model;
+import controller.GameSetting;
+import controller.RandomNum;
 
 import java.util.ArrayList;
 

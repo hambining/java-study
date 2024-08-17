@@ -1,7 +1,10 @@
 package controller;
 
+import model.ComNumList;
 import model.Result;
+import model.UserNumList;
 import view.Messages;
+import view.UserInput;
 
 public class GameResult {
     public void getGameResult(Result result, ComNumList comNumList, UserNumList userNumList, UserInput userInput) {
