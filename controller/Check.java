@@ -1,3 +1,9 @@
+package controller;
+
+import model.ComNumList;
+import model.Result;
+import model.UserNumList;
+
 public class Check {
     public void count(ComNumList comNumList, UserNumList userNumList, Result result) {
         for (int i = 0; i < GameSetting.SIZE_OF_NUMBER_LIST; i++) {

@@ -1,3 +1,11 @@
+package controller;
+
+import model.ComNumList;
+import model.Result;
+import model.UserNumList;
+import view.Messages;
+import view.UserInput;
+
 public class GameSetting {
     // Create objects here
     Result result = new Result();
@@ -5,27 +13,21 @@ public class GameSetting {
     UserNumList userNumList = new UserNumList();
     UserInput input = new UserInput();
     Check check = new Check();
-    RandomNum randomNum = new RandomNum();
     GameResult gameResult = new GameResult();
+    Messages messages;
+    NumList numList = new NumList();
 
     public static final int SIZE_OF_NUMBER_LIST = 3;
     public static final int END_GAME = 2;
 
     public void startGame() {
-        Messages.START_GAME.println();
+        messages.START_GAME.println();
 
         while (result.getAgain() != END_GAME) {
 
             result.initBallAndStrike();
 
-            // Add 3 random numbers to comNumList
-            comNumList.setComNumList(randomNum);
-
-            // Get 3 numbers from user
-            Messages.INPUT_NUMBER.print();
-
-            // Set userNumList
-            userNumList.addNum(input.getUserInput());
+            numList.setNumList(comNumList, userNumList);
 
             // Count ball & strike
             check.count(comNumList, userNumList, result);

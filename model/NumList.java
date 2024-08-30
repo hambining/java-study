@@ -1,9 +1,7 @@
-import java.util.ArrayList;
+package model;
 
 public interface NumList {
     void addNum(int num);
     void clear();
-    ArrayList<Integer> getNumList();
-
     Integer getNum(int index);
 }

@@ -1,6 +1,10 @@
+package model;
+import controller.GameSetting;
+import controller.RandomNum;
+
 import java.util.ArrayList;
 
-public class ComNumList implements NumList{
+public class ComNumList implements NumList {
     ArrayList<Integer> comNumList;
 
     public ComNumList() {
@@ -26,11 +30,6 @@ public class ComNumList implements NumList{
     @Override
     public void clear() {
         comNumList.clear();
-    }
-
-    @Override
-    public ArrayList<Integer> getNumList() {
-        return comNumList;
     }
 
     @Override

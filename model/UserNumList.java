@@ -1,9 +1,20 @@
+package model;
+
+import controller.GameSetting;
+import view.UserInput;
+import view.Messages;
+
 import java.util.ArrayList;
 
 public class UserNumList implements NumList {
     ArrayList<Integer> userNumList;
     public UserNumList() {
         userNumList = new ArrayList<>(GameSetting.SIZE_OF_NUMBER_LIST);
+    }
+
+    public void setUserNumList(UserInput input) {
+        Messages.INPUT_NUMBER.print();
+        addNum(input.getUserInput());
     }
 
     @Override
@@ -17,11 +28,6 @@ public class UserNumList implements NumList {
     @Override
     public void clear() {
         userNumList.clear();
-    }
-
-    @Override
-    public ArrayList<Integer> getNumList() {
-        return userNumList;
     }
 
     @Override
