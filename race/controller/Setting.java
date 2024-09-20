@@ -16,6 +16,8 @@ public class Setting {
         UserInput userInput = new UserInput();
 
         String[] carNames = userInput.getCarNamesArr();
+        CheckException checkException = new CheckException();
+        checkException.checkIllegalArgumentException(carNames);
         int amount = userInput.getAmount();
 
 
