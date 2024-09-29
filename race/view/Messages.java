@@ -11,8 +11,8 @@ public enum Messages {
     STR(""),
     WINNER("최종 우승자"),
     CAR_NAME("%s"),
-    COLON(" : "),
-    DASH("-"),
+    SEPARATOR(" : "),
+    DISTANCE("-"),
     ILLEGAL_ARGUMENT_STATE_ERROR("자동차 이름은 5글자 이하로만 입력할 수 있습니다.");
 
     public final String message;
@@ -45,15 +45,15 @@ public enum Messages {
             int distance = car.getDistance();
 
             CAR_NAME.printf(name);
-            COLON.print();
-            DASH.printFor(distance);
+            SEPARATOR.print();
+            DISTANCE.printFor(distance);
         });
         System.out.println();
     }
 
     public void printWinner(String[] winners) {
         WINNER.print();
-        COLON.print();
+        SEPARATOR.print();
 
         StringBuilder winnerNames = new StringBuilder();
         for (String winner : winners) {
