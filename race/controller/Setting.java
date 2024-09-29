@@ -14,13 +14,12 @@ public class Setting {
 
     public void setRace() {
         UserInput userInput = new UserInput();
-
         String[] carNames = userInput.getCarNamesArr();
-        int amount = userInput.getAmount();
-
         Cars cars = new Cars(getCars(carNames));
         CarCondition carCondition = new CarCondition(cars.getCars());
         Winner winner = new Winner(cars.getCars());
+
+        int amount = userInput.getAmount();
 
 
         Messages.RESULT.println();
