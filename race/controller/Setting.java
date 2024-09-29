@@ -23,10 +23,7 @@ public class Setting {
 
 
         // 경주할 자동차 생성
-        List<Car> carList = new ArrayList<>();
-        for (String name : carNames) {
-            carList.add(new Car(name));
-        }
+        List<Car> carList = getCars(carNames);
         Cars cars = new Cars(carList);
 
 
@@ -43,6 +40,14 @@ public class Setting {
         // 우승자 출력
         Winner winner = new Winner(cars.getCars());
         Messages.STR.printResult(winner.getWinnersNames());
+    }
+
+    public List<Car> getCars(String[] carNames) {
+        List<Car> carList = new ArrayList<>();
+        for (String name : carNames) {
+            carList.add(new Car(name));
+        }
+        return carList;
     }
 
     public void race(CarCondition carCondition, Cars cars) {
