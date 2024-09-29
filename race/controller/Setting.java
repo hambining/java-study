@@ -32,12 +32,11 @@ public class Setting {
 
         // 경주 조건 세팅
         CarCondition carCondition = new CarCondition(cars.getCars());
-        Move move = new Move(cars.getCars());
 
         // 경주 시작 및 결과값 출력
         Messages.RESULT.println();
         for (int i = 0; i < amount; i++) {
-            race(carCondition, move);
+            race(carCondition, cars);
             Messages.STR.printProcess(cars.getCars());
         }
 
@@ -46,9 +45,9 @@ public class Setting {
         Messages.STR.printWinner(winner.getWinner());
     }
 
-    public void race(CarCondition carCondition, Move move) {
+    public void race(CarCondition carCondition, Cars cars) {
         carCondition.setCarsCondition();
-        move.move();
+        cars.move();
         carCondition.initCarsCondition();
     }
 }

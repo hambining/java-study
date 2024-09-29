@@ -12,4 +12,10 @@ public class Cars {
     public List<Car> getCars() {
         return cars;
     }
+
+    public void move() {
+        cars.stream()
+                .filter(car -> car.getConditionNum() >= 4)
+                .forEach(Car::increaseDistance);
+    }
 }
