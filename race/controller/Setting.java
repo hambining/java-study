@@ -42,7 +42,7 @@ public class Setting {
 
         // 우승자 출력
         Winner winner = new Winner(cars.getCars());
-        Messages.STR.printWinner(winner.getWinner());
+        Messages.STR.printResult(winner.getWinnersNames());
     }
 
     public void race(CarCondition carCondition, Cars cars) {

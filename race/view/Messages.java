@@ -51,17 +51,10 @@ public enum Messages {
         System.out.println();
     }
 
-    public void printWinner(String[] winners) {
+    public void printResult(String winnersNames) {
         WINNER.print();
         SEPARATOR.print();
-
-        StringBuilder winnerNames = new StringBuilder();
-        for (String winner : winners) {
-            winnerNames.append(winner);
-            winnerNames.append(", ");
-        }
-
-        CAR_NAME.printf(winnerNames.substring(0, winnerNames.length() - 2));
+        CAR_NAME.printf(winnersNames);
     }
 
 }
