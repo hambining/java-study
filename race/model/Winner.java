@@ -5,8 +5,8 @@ import java.util.List;
 public class Winner {
     List<Car> cars;
 
-    public Winner(List<Car> c) {
-        this.cars = c;
+    public Winner(List<Car> cars) {
+        this.cars = cars;
     }
 
     public String[] getWinner() {
