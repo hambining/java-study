@@ -19,12 +19,11 @@ public class Setting {
         CheckException checkException = new CheckException();
         checkException.checkIllegalArgumentException(carNames);
         int amount = userInput.getAmount();
-        
-        List<Car> carList = getCars(carNames);
-        Cars cars = new Cars(carList);
 
-
+        Cars cars = new Cars(getCars(carNames));
         CarCondition carCondition = new CarCondition(cars.getCars());
+        Winner winner = new Winner(cars.getCars());
+
 
         Messages.RESULT.println();
         for (int i = 0; i < amount; i++) {
@@ -32,7 +31,6 @@ public class Setting {
             Messages.printProcess(cars.getCars());
         }
 
-        Winner winner = new Winner(cars.getCars());
         Messages.printResult(winner.getWinnersNames());
     }
 
