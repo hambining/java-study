@@ -34,12 +34,12 @@ public class Setting {
         Messages.RESULT.println();
         for (int i = 0; i < amount; i++) {
             race(carCondition, cars);
-            Messages.STR.printProcess(cars.getCars());
+            Messages.printProcess(cars.getCars());
         }
 
         // 우승자 출력
         Winner winner = new Winner(cars.getCars());
-        Messages.STR.printResult(winner.getWinnersNames());
+        Messages.printResult(winner.getWinnersNames());
     }
 
     public List<Car> getCars(String[] carNames) {
