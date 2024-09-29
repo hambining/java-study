@@ -2,6 +2,7 @@ package race.controller;
 
 import race.model.Car;
 import race.model.CarCondition;
+import race.model.Cars;
 import race.model.Winner;
 import race.view.Messages;
 import race.view.UserInput;
@@ -22,25 +23,26 @@ public class Setting {
 
 
         // 경주할 자동차 생성
-        List<Car> cars = new ArrayList<>();
+        List<Car> carList = new ArrayList<>();
         for (String name : carNames) {
-            cars.add(new Car(name));
+            carList.add(new Car(name));
         }
+        Cars cars = new Cars(carList);
 
 
         // 경주 조건 세팅
-        CarCondition carCondition = new CarCondition(cars);
-        Move move = new Move(cars);
+        CarCondition carCondition = new CarCondition(cars.getCars());
+        Move move = new Move(cars.getCars());
 
         // 경주 시작 및 결과값 출력
         Messages.RESULT.println();
         for (int i = 0; i < amount; i++) {
             race(carCondition, move);
-            Messages.STR.printProcess(cars);
+            Messages.STR.printProcess(cars.getCars());
         }
 
         // 우승자 출력
-        Winner winner = new Winner(cars);
+        Winner winner = new Winner(cars.getCars());
         Messages.STR.printWinner(winner.getWinner());
     }
 
