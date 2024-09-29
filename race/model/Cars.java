@@ -3,7 +3,7 @@ package race.model;
 import java.util.List;
 
 public class Cars {
-    List<Car> cars;
+    private List<Car> cars;
 
     public Cars(List<Car> cars) {
         this.cars = cars;
@@ -18,4 +18,6 @@ public class Cars {
                 .filter(car -> car.getConditionNum() >= 4)
                 .forEach(Car::increaseDistance);
     }
+
+
 }
