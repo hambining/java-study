@@ -32,8 +32,8 @@ public enum Messages {
         System.out.printf(message, name);
     }
 
-    public void printFor(int distance) {
-        for (int i = 0; i < distance; i++) {
+    public void printFor(int amount) {
+        for (int i = 0; i < amount; i++) {
             System.out.print(message);
         }
         System.out.println();
