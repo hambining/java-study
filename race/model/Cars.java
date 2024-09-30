@@ -7,7 +7,7 @@ public class Cars {
     private List<Car> cars;
 
     public Cars(List<Car> cars) {
-        validateNames(cars);
+        validateNames();
         this.cars = cars;
     }
 
@@ -21,7 +21,7 @@ public class Cars {
                 .forEach(Car::increaseDistance);
     }
 
-    public void validateNames(List<Car> cars) {
+    public void validateNames() {
         cars.stream().map(Car::getName)
                 .forEach(car -> {
                     if (car.length() > 5) {
