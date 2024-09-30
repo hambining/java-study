@@ -8,8 +8,8 @@ public class Winner {
     }
 
     public String[] getWinnerArray() {
-        int max = cars.stream().mapToInt(Car::getDistance).max().orElse(0);
-        return cars.stream().filter(car -> car.getDistance() == max)
+        int max = cars.getCars().stream().mapToInt(Car::getDistance).max().orElse(0);
+        return cars.getCars().stream().filter(car -> car.getDistance() == max)
                 .map(Car::getName).toArray(String[]::new);
     }
 

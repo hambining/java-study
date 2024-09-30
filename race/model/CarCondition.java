@@ -12,10 +12,10 @@ public class CarCondition {
     }
 
     public void setCarsCondition() {
-        cars.forEach(car -> car.setConditionNum(randNum.getRandNum()));
+        cars.getCars().forEach(car -> car.setConditionNum(randNum.getRandNum()));
     }
 
     public void initCarsCondition() {
-        cars.forEach(Car::initConditionNum);
+        cars.getCars().forEach(Car::initConditionNum);
     }
 }
