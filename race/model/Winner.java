@@ -1,5 +1,6 @@
 package race.model;
 
+import race.common.ConstVariable;
 import race.view.Messages;
 
 public class Winner {
@@ -22,6 +23,6 @@ public class Winner {
             winnerNames.append(winner);
             winnerNames.append(Messages.SEPARATOR_COMMA);
         }
-        return winnerNames.substring(0, winnerNames.length() - 2);
+        return winnerNames.substring(0, winnerNames.length() - ConstVariable.UNNECESSARY_BLANK);
     }
 }

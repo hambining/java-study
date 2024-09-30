@@ -1,5 +1,6 @@
 package race.model;
 
+import race.common.ConstVariable;
 import race.controller.RandNum;
 import race.view.Messages;
 import java.util.List;
@@ -18,14 +19,14 @@ public class Cars {
 
     public void move() {
         cars.stream()
-                .filter(car -> car.getConditionNum() >= 4)
+                .filter(car -> car.getConditionNum() >= ConstVariable.FORWARD_CONDITION)
                 .forEach(Car::increaseDistance);
     }
 
     public void validateNames() {
         cars.stream().map(Car::getName)
                 .forEach(car -> {
-                    if (car.length() > 5) {
+                    if (car.length() > ConstVariable.NAME_LENGTH_LIMIT) {
                         Messages.ILLEGAL_ARGUMENT_STATE_ERROR.println();
                         throw new IllegalArgumentException("글자수 제한 오류");
                     }
