@@ -1,7 +1,6 @@
 package race.controller;
 
 import race.model.Car;
-import race.model.CarCondition;
 import race.model.Cars;
 import race.model.Winner;
 import race.view.Messages;
@@ -16,7 +15,6 @@ public class Setting {
         UserInput userInput = new UserInput();
         String[] carNames = userInput.getCarNamesArr();
         Cars cars = new Cars(getCars(carNames));
-        CarCondition carCondition = new CarCondition(cars);
         Winner winner = new Winner(cars);
 
         int amount = userInput.getAmount();
@@ -24,7 +22,7 @@ public class Setting {
 
         Messages.RESULT.println();
         for (int i = 0; i < amount; i++) {
-            race(carCondition, cars);
+            race(cars);
             Messages.printProcess(cars.getCars());
         }
 
@@ -39,9 +37,8 @@ public class Setting {
         return carList;
     }
 
-    public void race(CarCondition carCondition, Cars cars) {
-        carCondition.setCarsCondition();
+    public void race(Cars cars) {
+        cars.setCarsCondition();
         cars.move();
-        carCondition.initCarsCondition();
     }
 }

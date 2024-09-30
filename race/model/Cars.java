@@ -1,5 +1,6 @@
 package race.model;
 
+import race.controller.RandNum;
 import race.view.Messages;
 import java.util.List;
 
@@ -29,5 +30,10 @@ public class Cars {
                         throw new IllegalArgumentException("글자수 제한 오류");
                     }
                 });
+    }
+
+    public void setCarsCondition() {
+        RandNum randNum = new RandNum();
+        cars.forEach(car -> car.setConditionNum(randNum.getRandNum()));
     }
 }
