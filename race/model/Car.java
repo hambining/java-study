@@ -2,8 +2,8 @@ package race.model;
 
 public class Car {
     private String name;
-    private int conditionNum;
-    private int distance;
+    private int conditionNum = 0;
+    private int distance = 0;
 
     public Car(String name) {
         this.name = name;
