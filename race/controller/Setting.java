@@ -16,8 +16,8 @@ public class Setting {
         UserInput userInput = new UserInput();
         String[] carNames = userInput.getCarNamesArr();
         Cars cars = new Cars(getCars(carNames));
-        CarCondition carCondition = new CarCondition(cars.getCars());
-        Winner winner = new Winner(cars.getCars());
+        CarCondition carCondition = new CarCondition(cars);
+        Winner winner = new Winner(cars);
 
         int amount = userInput.getAmount();
 

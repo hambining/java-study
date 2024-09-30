@@ -1,11 +1,9 @@
 package race.model;
 
-import java.util.List;
-
 public class Winner {
-    List<Car> cars;
+    Cars cars;
 
-    public Winner(List<Car> cars) {
+    public Winner(Cars cars) {
         this.cars = cars;
     }
 

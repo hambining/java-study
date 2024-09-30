@@ -2,14 +2,12 @@ package race.model;
 
 import race.controller.RandNum;
 
-import java.util.List;
-
 // 자동차 전진 조건 세팅
 public class CarCondition {
-    List<Car> cars;
+    Cars cars;
     RandNum randNum = new RandNum();
 
-    public CarCondition(List<Car> cars) {
+    public CarCondition(Cars cars) {
         this.cars = cars;
     }
 
