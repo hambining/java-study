@@ -1,5 +1,7 @@
 package race.model;
 
+import race.view.Messages;
+
 public class Winner {
     Cars cars;
 
@@ -18,7 +20,7 @@ public class Winner {
         String[] winners = getWinnerArray();
         for (String winner : winners) {
             winnerNames.append(winner);
-            winnerNames.append(", ");
+            winnerNames.append(Messages.SEPARATOR_COMMA);
         }
         return winnerNames.substring(0, winnerNames.length() - 2);
     }

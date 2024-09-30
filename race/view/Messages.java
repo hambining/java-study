@@ -10,7 +10,8 @@ public enum Messages {
     RESULT("실행 결과"),
     WINNER("최종 우승자"),
     CAR_NAME("%s"),
-    SEPARATOR(" : "),
+    SEPARATOR_COLON(" : "),
+    SEPARATOR_COMMA(", "),
     DISTANCE("-"),
     ILLEGAL_ARGUMENT_STATE_ERROR("자동차 이름은 5글자 이하로만 입력할 수 있습니다.");
 
@@ -44,7 +45,7 @@ public enum Messages {
             int distance = car.getDistance();
 
             CAR_NAME.printf(name);
-            SEPARATOR.print();
+            SEPARATOR_COLON.print();
             DISTANCE.printFor(distance);
         });
         System.out.println();
@@ -52,7 +53,7 @@ public enum Messages {
 
     public static void printResult(String winnersNames) {
         WINNER.print();
-        SEPARATOR.print();
+        SEPARATOR_COLON.print();
         CAR_NAME.printf(winnersNames);
     }
 
