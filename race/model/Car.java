@@ -28,10 +28,4 @@ public class Car {
     public void setConditionNum(int num) {
         this.conditionNum = num;
     }
-
-    public void initConditionNum() {
-        this.conditionNum = 0;
-    }
-
-
 }
