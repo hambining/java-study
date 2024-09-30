@@ -1,7 +1,7 @@
 package race.model;
 
 public class Car {
-    private String name;
+    private final String name;
     private int conditionNum = 0;
     private int distance = 0;
 
