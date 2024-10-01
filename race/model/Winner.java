@@ -1,7 +1,6 @@
 package race.model;
 
 import race.common.ConstVariable;
-import race.view.Messages;
 
 public class Winner {
     Cars cars;
