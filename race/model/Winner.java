@@ -21,7 +21,7 @@ public class Winner {
         String[] winners = getWinnerArray();
         for (String winner : winners) {
             winnerNames.append(winner);
-            winnerNames.append(Messages.SEPARATOR_COMMA);
+            winnerNames.append(ConstVariable.SEPARATOR_COMMA);
         }
         return winnerNames.substring(0, winnerNames.length() - ConstVariable.UNNECESSARY_BLANK);
     }

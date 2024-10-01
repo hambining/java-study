@@ -5,4 +5,5 @@ public class ConstVariable {
     public static final int FORWARD_CONDITION = 4;
     public static final int RAND_NUM_BOUND = 10;
     public static final int UNNECESSARY_BLANK = 2;
+    public static final String SEPARATOR_COMMA = ", ";
 }
