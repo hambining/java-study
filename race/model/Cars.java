@@ -37,4 +37,18 @@ public class Cars {
         RandNum randNum = new RandNum();
         cars.forEach(car -> car.setConditionNum(randNum.getRandNum()));
     }
+
+    public String getProcess() {
+        StringBuilder stringBuilder = new StringBuilder();
+        cars.forEach(car -> {
+            stringBuilder.append(car.getName());
+            stringBuilder.append(ConstVariable.SEPARATOR_COLON);
+            for (int i = 0; i < car.getDistance(); i++) {
+                stringBuilder.append(ConstVariable.DISTANCE);
+            }
+            stringBuilder.append('\n');
+        });
+        stringBuilder.append('\n');
+        return stringBuilder.toString();
+    }
 }

@@ -23,7 +23,7 @@ public class Setting {
         Messages.RESULT.println();
         for (int i = 0; i < amount; i++) {
             race(cars);
-            Messages.printProcess(cars.getCars());
+            Messages.CAR_NAME.printf(cars.getProcess());
         }
 
         Messages.printResult(winner.getWinnersNames());
