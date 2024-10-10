@@ -2,6 +2,8 @@ package race.model;
 
 import race.common.ConstVariable;
 
+import java.util.NoSuchElementException;
+
 public class Winner {
     Cars cars;
 
@@ -10,7 +12,7 @@ public class Winner {
     }
 
     public String[] getWinnerArray() {
-        int max = cars.getCars().stream().mapToInt(Car::getDistance).max().orElse(0);
+        int max = cars.getCars().stream().mapToInt(Car::getDistance).max().orElseThrow(NoSuchElementException::new);
         return cars.getCars().stream().filter(car -> car.getDistance() == max)
                 .map(Car::getName).toArray(String[]::new);
     }
