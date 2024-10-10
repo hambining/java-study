@@ -43,9 +43,7 @@ public class Cars {
         cars.forEach(car -> {
             stringBuilder.append(car.getName());
             stringBuilder.append(ConstVariable.SEPARATOR_COLON);
-            for (int i = 0; i < car.getDistance(); i++) {
-                stringBuilder.append(ConstVariable.DISTANCE);
-            }
+            stringBuilder.repeat(ConstVariable.DISTANCE, car.getDistance());
             stringBuilder.append('\n');
         });
         stringBuilder.append('\n');
