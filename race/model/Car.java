@@ -1,9 +1,9 @@
 package race.model;
 
 public class Car {
-    private String name;
-    private int conditionNum;
-    private int distance;
+    private final String name;
+    private int conditionNum = 0;
+    private int distance = 0;
 
     public Car(String name) {
         this.name = name;
@@ -28,10 +28,4 @@ public class Car {
     public void setConditionNum(int num) {
         this.conditionNum = num;
     }
-
-    public void initConditionNum() {
-        this.conditionNum = 0;
-    }
-
-
 }
