@@ -14,8 +14,8 @@ public class Winner {
     }
 
     public String[] getWinnerArray() {
-        int max = cars.getCars().stream().mapToInt(Car::getDistance).max().orElseThrow(NoSuchElementException::new);
-        return cars.getCars().stream().filter(car -> car.getDistance() == max)
+        int max = cars.getCars().stream().mapToInt(car -> car.getDistance().length()).max().orElseThrow(NoSuchElementException::new);
+        return cars.getCars().stream().filter(car -> car.getDistance().length() == max)
                 .map(Car::getName).toArray(String[]::new);
     }
 

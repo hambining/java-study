@@ -15,8 +15,10 @@ public class Car {
         return name;
     }
 
-    public int getDistance() {
-        return distance;
+    public String getDistance() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.repeat(ConstVariable.DISTANCE, distance);
+        return stringBuilder.toString();
     }
 
     public void increaseDistance() {
