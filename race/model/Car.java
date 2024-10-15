@@ -16,9 +16,7 @@ public class Car {
     }
 
     public String getDistance() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.repeat(ConstVariable.DISTANCE, distance);
-        return stringBuilder.toString();
+        return ConstVariable.DISTANCE.repeat(distance);
     }
 
     public void increaseDistance() {
