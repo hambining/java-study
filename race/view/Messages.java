@@ -7,8 +7,6 @@ public enum Messages {
     WINNER("최종 우승자"),
     CAR_NAME("%s"),
     SEPARATOR_COLON(" : "),
-    SEPARATOR_COMMA(", "),
-    DISTANCE("-"),
     ILLEGAL_ARGUMENT_STATE_ERROR("자동차 이름은 5글자 이하로만 입력할 수 있습니다.");
 
     public final String message;
