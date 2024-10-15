@@ -40,12 +40,10 @@ public class Cars {
 
     public String getProcess() {
         StringBuilder stringBuilder = new StringBuilder();
-        cars.forEach(car -> {
-            stringBuilder.append(car.getName());
-            stringBuilder.append(ConstVariable.SEPARATOR_COLON);
-            stringBuilder.append(car.getDistance());
-            stringBuilder.append('\n');
-        });
+        cars.forEach(car -> stringBuilder.append(car.getName())
+                .append(ConstVariable.SEPARATOR_COLON)
+                .append(car.getDistance())
+                .append('\n'));
         stringBuilder.append('\n');
         return stringBuilder.toString();
     }
