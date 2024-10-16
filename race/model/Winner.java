@@ -2,7 +2,9 @@ package race.model;
 
 import race.common.ConstVariable;
 
+import java.util.Arrays;
 import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 public class Winner {
     Cars cars;
@@ -12,18 +14,14 @@ public class Winner {
     }
 
     public String[] getWinnerArray() {
-        int max = cars.getCars().stream().mapToInt(Car::getDistance).max().orElseThrow(NoSuchElementException::new);
-        return cars.getCars().stream().filter(car -> car.getDistance() == max)
+        int max = cars.getCars().stream().mapToInt(car -> car.getDistance().length()).max().orElseThrow(NoSuchElementException::new);
+        return cars.getCars().stream().filter(car -> car.getDistance().length() == max)
                 .map(Car::getName).toArray(String[]::new);
     }
 
     public String getWinnersNames() {
-        StringBuilder winnerNames = new StringBuilder();
         String[] winners = getWinnerArray();
-        for (String winner : winners) {
-            winnerNames.append(winner);
-            winnerNames.append(ConstVariable.SEPARATOR_COMMA);
-        }
-        return winnerNames.substring(0, winnerNames.length() - ConstVariable.UNNECESSARY_BLANK);
+        return Arrays.stream(winners).map(String::valueOf)
+                .collect(Collectors.joining(ConstVariable.SEPARATOR_COMMA));
     }
 }
