@@ -1,9 +1,11 @@
 package race.model;
 
+import race.common.ConstVariable;
+
 public class Car {
     private final String name;
-    private int conditionNum = 0;
-    private int distance = 0;
+    private int conditionNum = ConstVariable.INITIALIZING_NUMBER;
+    private int distance = ConstVariable.INITIALIZING_NUMBER;
 
     public Car(String name) {
         this.name = name;
@@ -13,8 +15,8 @@ public class Car {
         return name;
     }
 
-    public int getDistance() {
-        return distance;
+    public String getDistance() {
+        return ConstVariable.DISTANCE.repeat(distance);
     }
 
     public void increaseDistance() {

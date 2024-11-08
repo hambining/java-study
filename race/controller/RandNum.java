@@ -8,6 +8,6 @@ public class RandNum {
     Random random = new Random();
 
     public int getRandNum() {
-        return random.nextInt(ConstVariable.RAND_NUM_BOUND);
+        return random.nextInt(ConstVariable.RANDOM_NUMBER_BOUND);
     }
 }
