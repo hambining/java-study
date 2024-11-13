@@ -17,10 +17,6 @@ public class NumList {
         }
     }
 
-    public ArrayList<Integer> getNumList() {
-        return numList;
-    }
-
     public void clear() {
         numList.clear();
     }
