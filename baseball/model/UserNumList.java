@@ -10,9 +10,4 @@ public class UserNumList extends NumList {
     public UserNumList() {
         userNumList = new ArrayList<>(ConstVariable.SIZE_OF_NUMBER_LIST);
     }
-
-    @Override
-    public void clear() {
-        super.clear();
-    }
 }

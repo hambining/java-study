@@ -9,9 +9,4 @@ public class ComNumList extends NumList {
     public ComNumList() {
         comNumList = new ArrayList<>(ConstVariable.SIZE_OF_NUMBER_LIST);
     }
-
-    @Override
-    public void clear() {
-        super.clear();
-    }
 }
