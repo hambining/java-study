@@ -1,31 +1,30 @@
 package baseball.controller;
 
 import baseball.common.ConstVariable;
-import baseball.model.ComNumList;
-import baseball.model.Result;
-import baseball.model.UserNumList;
+import baseball.model.*;
 import baseball.view.Messages;
 import baseball.view.UserInput;
 
 public class GameSetting {
     // Create objects here
     Result result = new Result();
-    ComNumList comNumList = new ComNumList();
-    UserNumList userNumList = new UserNumList();
     UserInput input = new UserInput();
     Check check = new Check();
     GameResult gameResult = new GameResult();
-    Messages messages;
-    NumList numList = new NumList();
+    RandNum randNum = new RandNum();
+
+    ComNumList comNumList = new ComNumList();
+    UserNumList userNumList = new UserNumList();
 
     public void startGame() {
-        messages.START_GAME.println();
+        Messages.START_GAME.println();
 
         while (result.getAgain() != ConstVariable.END_GAME) {
 
             result.initBallAndStrike();
 
-            numList.setNumList(comNumList, userNumList);
+            comNumList.setNumList(randNum.getRandNumArr());
+            userNumList.setNumList(input.getUserInputNumArr(input.getUserInput()));
 
             // Count ball & strike
             check.count(comNumList, userNumList, result);
