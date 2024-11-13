@@ -18,13 +18,10 @@ public class GameSetting {
     Messages messages;
     NumList numList = new NumList();
 
-    public static final int SIZE_OF_NUMBER_LIST = 3;
-    public static final int END_GAME = 2;
-
     public void startGame() {
         messages.START_GAME.println();
 
-        while (result.getAgain() != END_GAME) {
+        while (result.getAgain() != ConstVariable.END_GAME) {
 
             result.initBallAndStrike();
 

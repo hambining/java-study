@@ -8,9 +8,9 @@ public class Result {
     private int again;
 
     public Result() {
-        strike = 0;
-        ball = 0;
-        again = 0;
+        strike = ConstVariable.INITIALIZING_NUMBER;
+        ball = ConstVariable.INITIALIZING_NUMBER;
+        again = ConstVariable.INITIALIZING_NUMBER;
     }
 
     public int getBall() {
