@@ -1,7 +1,6 @@
 package baseball.model;
 
 import baseball.common.ConstVariable;
-import baseball.controller.GameSetting;
 import baseball.view.UserInput;
 import baseball.view.Messages;
 
