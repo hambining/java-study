@@ -1,8 +1,9 @@
-package model;
+package baseball.model;
 
-import controller.GameSetting;
-import view.UserInput;
-import view.Messages;
+import baseball.common.ConstVariable;
+import baseball.controller.GameSetting;
+import baseball.view.UserInput;
+import baseball.view.Messages;
 
 import java.util.ArrayList;
 

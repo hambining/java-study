@@ -1,4 +1,4 @@
-package model;
+package baseball.model;
 
 public interface NumList {
     void addNum(int num);

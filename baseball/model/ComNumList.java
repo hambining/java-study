@@ -1,6 +1,6 @@
-package model;
-import controller.GameSetting;
-import controller.RandomNum;
+package baseball.model;
+import baseball.common.ConstVariable;
+import baseball.controller.RandomNum;
 
 import java.util.ArrayList;
 

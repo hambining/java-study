@@ -1,4 +1,6 @@
-package model;
+package baseball.model;
+
+import baseball.common.ConstVariable;
 
 public class Result {
     private int strike;
@@ -36,8 +38,8 @@ public class Result {
     }
 
     public void initBallAndStrike() {
-        this.ball = 0;
-        this.strike = 0;
+        this.ball = ConstVariable.INITIALIZING_NUMBER;
+        this.strike = ConstVariable.INITIALIZING_NUMBER;
     }
 
     public void setAgain(int again) {

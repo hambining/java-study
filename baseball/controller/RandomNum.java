@@ -1,4 +1,4 @@
-package controller;
+package baseball.controller;
 
 import java.util.Random;
 

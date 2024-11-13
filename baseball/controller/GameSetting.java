@@ -1,10 +1,11 @@
-package controller;
+package baseball.controller;
 
-import model.ComNumList;
-import model.Result;
-import model.UserNumList;
-import view.Messages;
-import view.UserInput;
+import baseball.common.ConstVariable;
+import baseball.model.ComNumList;
+import baseball.model.Result;
+import baseball.model.UserNumList;
+import baseball.view.Messages;
+import baseball.view.UserInput;
 
 public class GameSetting {
     // Create objects here
