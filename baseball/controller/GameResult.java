@@ -18,10 +18,10 @@ public class GameResult {
 
             result.setAgain(userInput.getUserInput());
             comNumList.clear();
-            userNumList.clear();
         } else {
             Messages.PRINT_BALL.printNum(ball);
             Messages.PRINT_STRIKE.printNum(strike);
         }
+        userNumList.clear();
     }
 }
