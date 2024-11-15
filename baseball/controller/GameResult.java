@@ -1,10 +1,10 @@
-package controller;
+package baseball.controller;
 
-import model.ComNumList;
-import model.Result;
-import model.UserNumList;
-import view.Messages;
-import view.UserInput;
+import baseball.model.ComNumList;
+import baseball.model.Result;
+import baseball.model.UserNumList;
+import baseball.view.Messages;
+import baseball.view.UserInput;
 
 public class GameResult {
     public void getGameResult(Result result, ComNumList comNumList, UserNumList userNumList, UserInput userInput) {
@@ -18,10 +18,10 @@ public class GameResult {
 
             result.setAgain(userInput.getUserInput());
             comNumList.clear();
-            userNumList.clear();
         } else {
             Messages.PRINT_BALL.printNum(ball);
             Messages.PRINT_STRIKE.printNum(strike);
         }
+        userNumList.clear();
     }
 }

@@ -1,8 +1,8 @@
-package controller;
+package baseball.controller;
 
-import model.ComNumList;
-import model.UserNumList;
-import view.UserInput;
+import baseball.model.ComNumList;
+import baseball.model.UserNumList;
+import baseball.view.UserInput;
 
 public class NumList {
     public void setNumList(ComNumList comNumList, UserNumList userNumList) {
