@@ -2,11 +2,12 @@ package baseball.controller;
 
 import baseball.common.ConstVariable;
 import baseball.model.ComNumList;
+import baseball.model.NumList;
 import baseball.model.Result;
 import baseball.model.UserNumList;
 
 public class Check {
-    public void count(ComNumList comNumList, UserNumList userNumList, Result result) {
+    public void count(NumList comNumList, NumList userNumList, Result result) {
         for (int i = 0; i < ConstVariable.SIZE_OF_NUMBER_LIST; i++) {
             for (int j = 0; j < ConstVariable.SIZE_OF_NUMBER_LIST; j++) {
                 if ((comNumList.getNum(i)).equals(userNumList.getNum(j))) {
