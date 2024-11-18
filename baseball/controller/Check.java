@@ -1,10 +1,8 @@
 package baseball.controller;
 
 import baseball.common.ConstVariable;
-import baseball.model.ComNumList;
 import baseball.model.NumList;
 import baseball.model.Result;
-import baseball.model.UserNumList;
 
 public class Check {
     public void count(NumList comNumList, NumList userNumList, Result result) {

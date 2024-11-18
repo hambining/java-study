@@ -1,9 +1,7 @@
 package baseball.controller;
 
-import baseball.model.ComNumList;
 import baseball.model.NumList;
 import baseball.model.Result;
-import baseball.model.UserNumList;
 import baseball.view.Messages;
 import baseball.view.UserInput;
 
