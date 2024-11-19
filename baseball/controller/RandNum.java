@@ -1,21 +1,22 @@
 package baseball.controller;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import baseball.common.ConstVariable;
+
+import java.util.Random;
 
 public class RandNum {
 
     public int[] getRandNumArr() {
-        ArrayList<Integer> numbers = new ArrayList<>();
+        Random random = new Random();
+        int[] randNumArr = new int[ConstVariable.SIZE_OF_NUMBER_LIST];
 
-        for (int i = 1; i <= 9; i++) {
-            numbers.add(i);
+        for (int i = 0; i < ConstVariable.SIZE_OF_NUMBER_LIST; i++) {
+            randNumArr[i] = random.nextInt(9) + 1;
+            for (int j = 0; j < i; j++) {
+                if (randNumArr[i] == randNumArr[j]) i--;
+            }
         }
 
-        Collections.shuffle(numbers);
-
-        return numbers.subList(0, 3).stream()
-                .mapToInt(Integer::intValue)
-                .toArray();
+        return randNumArr;
     }
 }
