@@ -24,7 +24,7 @@ public class GameSetting {
             result.initBallAndStrike();
 
             comNumList.setNumList(randNum.getRandNumArr());
-            userNumList.setNumList(input.getUserInputNumArr(input.getUserInput()));
+            userNumList.setNumList(input.getUserInputNumArr());
 
             // Count ball & strike
             check.count(comNumList, userNumList, result);
