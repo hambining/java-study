@@ -13,6 +13,7 @@ public class UserInput {
         try {
             return sc.nextInt();
         } catch (InputMismatchException e) {
+            ErrorMessages.MISMATCH_INPUT_ERROR.println();
             throw new InputMismatchException("입력 형식 오류");
         }
     }
@@ -27,12 +28,14 @@ public class UserInput {
 
     public void validateInputLength(int num) {
         if (Validation.isOverThanMaxInputLength(num)) {
+            ErrorMessages.OVER_MAX_LENGTH_ERROR.println();
             throw new IllegalArgumentException("입력 수 제한 오류");
         }
     }
 
     public void validateDuplicatedInput(int[] numArr) {
         if (Validation.hasDuplicationNumbers(numArr)) {
+            ErrorMessages.DUPLICATED_INPUT_ERROR.println();
             throw new IllegalArgumentException("중복 입력 오류");
         }
     }
