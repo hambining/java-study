@@ -23,8 +23,7 @@ public class GameSetting {
 
             result.initBallAndStrike();
 
-            comNumList.setNumList(randNum.getRandNumArr());
-            userNumList.setNumList(input.getUserInputNumArr());
+            setNumLists(comNumList, userNumList);
 
             // Count ball & strike
             check.count(comNumList, userNumList, result);
@@ -32,5 +31,10 @@ public class GameSetting {
             // print game re-start/end
             gameResult.getGameResult(result, comNumList, userNumList, input);
         }
+    }
+
+    public void setNumLists(NumList comNumList, NumList userNumList) {
+        comNumList.setNumList(randNum.getRandNumArr());
+        userNumList.setNumList(input.getUserInputNumArr());
     }
 }
