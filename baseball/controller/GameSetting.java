@@ -13,8 +13,8 @@ public class GameSetting {
     GameResult gameResult = new GameResult();
     RandNum randNum = new RandNum();
 
-    NumList comNumList = new ComNumList();
-    NumList userNumList = new UserNumList();
+    NumList comNumList = new NumList();
+    NumList userNumList = new NumList();
 
     public void startGame() {
         Messages.START_GAME.println();
