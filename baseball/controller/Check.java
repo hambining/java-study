@@ -21,10 +21,8 @@ public class Check {
 
     public void countBall(NumList comNumList, NumList userNumList, Result result) {
         for (int i = 0; i < ConstVariable.SIZE_OF_NUMBER_LIST; i++) {
-            for (int j = 0; j < ConstVariable.SIZE_OF_NUMBER_LIST; j++) {
-                if ((comNumList.getNum(i)).equals(userNumList.getNum(j))) {
-                    result.increaseBall();
-                }
+            if (userNumList.getNumList().contains(comNumList.getNum(i))) {
+                result.increaseBall();
             }
         }
     }
