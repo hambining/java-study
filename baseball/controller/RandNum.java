@@ -11,7 +11,7 @@ public class RandNum {
         int[] randNumArr = new int[ConstVariable.SIZE_OF_NUMBER_LIST];
 
         for (int i = 0; i < ConstVariable.SIZE_OF_NUMBER_LIST; i++) {
-            randNumArr[i] = random.nextInt(9) + 1;
+            randNumArr[i] = ConstVariable.RANDOM_MIN_VALUE + random.nextInt(ConstVariable.RANDOM_MAX_VALUE);
             for (int j = 0; j < i; j++) {
                 if (randNumArr[i] == randNumArr[j]) i--;
             }
