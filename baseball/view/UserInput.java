@@ -23,6 +23,7 @@ public class UserInput {
         validateInputLength(num);
         int[] numArr = Stream.of(String.valueOf(num).split("")).mapToInt(Integer::parseInt).toArray();
         validateDuplicatedInput(numArr);
+        validateInputBound(numArr);
         return numArr;
     }
 
@@ -30,6 +31,13 @@ public class UserInput {
         if (Validation.isOverThanMaxInputLength(num)) {
             ErrorMessages.OVER_MAX_LENGTH_ERROR.println();
             throw new IllegalArgumentException("입력 수 제한 오류");
+        }
+    }
+
+    public void validateInputBound(int[] numArr) {
+        if (Validation.isOverInputBound(numArr)) {
+            ErrorMessages.OVER_NUMBER_BOUND_ERROR.println();
+            throw new IllegalArgumentException("입력 범위 초과 오류");
         }
     }
 

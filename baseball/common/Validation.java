@@ -13,4 +13,13 @@ public class Validation {
     public static boolean hasDuplicationNumbers(int[] numArr) {
         return Arrays.stream(numArr).distinct().count() != numArr.length;
     }
+
+    // userInput 값 범위 검증 ..
+    public static boolean isOverInputBound(int[] numArr) {
+        for (int i : numArr) {
+            if (i < ConstVariable.NUMBER_MIN_VALUE)
+                return true;
+        }
+        return false;
+    }
 }

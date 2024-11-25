@@ -11,7 +11,7 @@ public class RandNum {
         int[] randNumArr = new int[ConstVariable.SIZE_OF_NUMBER_LIST];
 
         for (int i = 0; i < ConstVariable.SIZE_OF_NUMBER_LIST; i++) {
-            randNumArr[i] = ConstVariable.RANDOM_MIN_VALUE + random.nextInt(ConstVariable.RANDOM_MAX_VALUE);
+            randNumArr[i] = ConstVariable.NUMBER_MIN_VALUE + random.nextInt(ConstVariable.NUMBER_MAX_VALUE);
             i = removeDuplicatedNumbers(randNumArr, i);
         }
 
