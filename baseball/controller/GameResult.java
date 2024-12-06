@@ -1,13 +1,12 @@
 package baseball.controller;
 
-import baseball.model.ComNumList;
+import baseball.model.NumList;
 import baseball.model.Result;
-import baseball.model.UserNumList;
 import baseball.view.Messages;
 import baseball.view.UserInput;
 
 public class GameResult {
-    public void getGameResult(Result result, ComNumList comNumList, UserNumList userNumList, UserInput userInput) {
+    public void getGameResult(Result result, NumList comNumList, NumList userNumList, UserInput userInput) {
         int strike = result.getStrike();
         int ball = result.getBall();
         if (strike == 0 && ball == 0) {

@@ -24,4 +24,8 @@ public class NumList {
     public Integer getNum(int index) {
         return numList.get(index);
     }
+
+    public ArrayList<Integer> getNumList() {
+        return numList;
+    }
 }

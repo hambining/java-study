@@ -1,22 +1,35 @@
 package baseball.controller;
 
 import baseball.common.ConstVariable;
-import baseball.model.ComNumList;
+import baseball.model.NumList;
 import baseball.model.Result;
-import baseball.model.UserNumList;
 
 public class Check {
-    public void count(ComNumList comNumList, UserNumList userNumList, Result result) {
+    public void count(NumList comNumList, NumList userNumList, Result result) {
+        countStrike(comNumList, userNumList, result);
+        countBall(comNumList, userNumList, result);
+        removeDuplicatedBallCount(result);
+    }
+
+    public void countStrike(NumList comNumList, NumList userNumList, Result result) {
         for (int i = 0; i < ConstVariable.SIZE_OF_NUMBER_LIST; i++) {
-            for (int j = 0; j < ConstVariable.SIZE_OF_NUMBER_LIST; j++) {
-                if ((comNumList.getNum(i)).equals(userNumList.getNum(j))) {
-                    result.increaseBall();
-                    if (i == j) {
-                        result.decreaseBall();
-                        result.increaseStrike();
-                    }
-                }
+            if (comNumList.getNum(i).equals(userNumList.getNum(i))) {
+                result.increaseStrike();
             }
+        }
+    }
+
+    public void countBall(NumList comNumList, NumList userNumList, Result result) {
+        for (int i = 0; i < ConstVariable.SIZE_OF_NUMBER_LIST; i++) {
+            if (userNumList.getNumList().contains(comNumList.getNum(i))) {
+                result.increaseBall();
+            }
+        }
+    }
+
+    public void removeDuplicatedBallCount(Result result) {
+        for (int i = 0; i < result.getStrike(); i++) {
+            result.decreaseBall();
         }
     }
 
