@@ -11,12 +11,9 @@ public class UserInput {
         return Integer.parseInt(sc.nextLine());
     }
 
-    public List<Integer> readWinningNumbers() {
         Messages.ENTER_WINNING_NUMBERS.println();
-        String input = sc.nextLine();
-        return Arrays.stream(input.split(Constants.SEPARATOR))
-                .map(Integer::parseInt)
-                .toList();
+    public String readWinningNumbers() {
+        return sc.nextLine();
     }
 
     public int readBonusNumber() {
