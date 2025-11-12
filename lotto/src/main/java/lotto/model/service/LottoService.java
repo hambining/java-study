@@ -27,15 +27,15 @@ public class LottoService {
     public Result getResult(Lottos lottos, WinningNumbers winningNumbers, int bonusNumber) {
         Result result = new Result();
 
-        for (Lotto lotto : lottos.getLottos()) {
-            int hits = getHits(lotto.getNumbers(), winningNumbers.getNumbers());  // 맞은 개수 계산
-            boolean hasBonusNumber = lotto.getNumbers().contains(bonusNumber);      // 보너스 번호 여부 계산
-            result.addResult(rank);                                                 // 결과 반환
-        }
+        lottos.getLottos().stream()
+                .map(lotto -> {
+                    int hits = winningNumbers.countHits(lotto);
+                    boolean hasBonusNumber = lotto.getNumbers().contains(bonusNumber);
                     return Rank.getRank(hits, hasBonusNumber);
+                })
+                .forEach(result::addResult);
 
         return result;
-
     }
 
     public double getRateOfReturn(int tickets, Result result) {
