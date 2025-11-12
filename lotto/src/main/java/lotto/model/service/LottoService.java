@@ -1,6 +1,6 @@
 package lotto.model.service;
 
-import lotto.common.Validation;
+import lotto.common.InputParser;
 import lotto.model.*;
 import lotto.model.Rank;
 
@@ -10,69 +10,47 @@ import static lotto.common.Constants.*;
 
 public class LottoService {
 
-    // 실행 횟수 return
-    public int getTickets(int money) {
-        Validation.validateMoney(money);
-        return money / TICKET_PRICE;
+    private final Store store;
+    private final LottoMachine lottoMachine;
+
+    public LottoService(Store store, LottoMachine lottoMachine) {
+        this.store = store;
+        this.lottoMachine = lottoMachine;
     }
 
-    // 로또 생성
-    public Lottos buyLotto(int tickets) {
-        return new Lottos(tickets);
+    public Lottos buyLottos(int money) {
+        int ticket = store.calculateTickets(money);
+        return lottoMachine.generateLottos(ticket);
     }
 
-    // 등수를 바탕으로 결과 return
+    public WinningNumbers setWinningNumbers(String input) {
+        List<Integer> numbers = InputParser.parseNumbers(input, SEPARATOR);
+        return new WinningNumbers(numbers);
+    }
+
+    public BonusNumber setBonusNumber(int bonusNumber, WinningNumbers winningNumbers) {
+        return new BonusNumber(bonusNumber, winningNumbers.getNumbers());
+    }
+
     public Result getResult(Lottos lottos, WinningNumbers winningNumbers, int bonusNumber) {
         Result result = new Result();
 
-        for (Lotto lotto : lottos.getLottos()) {
-            int hits = getHits(lotto.getNumbers(), winningNumbers.getNumbers());  // 맞은 개수 계산
-            boolean hasBonusNumber = lotto.getNumbers().contains(bonusNumber);      // 보너스 번호 여부 계산
-            Rank rank = decideRank(hits, hasBonusNumber);                          // 등수 계산
-            result.addResult(rank);                                                 // 결과 반환
-        }
+        lottos.getLottos().stream()
+                .map(lotto -> {
+                    int hits = winningNumbers.countHits(lotto);
+                    boolean hasBonusNumber = lotto.getNumbers().contains(bonusNumber);
+                    return Rank.getRank(hits, hasBonusNumber);
+                })
+                .forEach(result::addResult);
 
         return result;
-
     }
 
-    // 로또 번호 일치 개수 반환
-    private int getHits(List<Integer> lotto, List<Integer> winningNumbers) {
-        int hits = 0;
-        for (Integer lottoNumber : lotto) {
-            if (winningNumbers.contains(lottoNumber)) {
-                hits++;
-            }
-        }
-        return hits;
-    }
-
-    // 등수 계산
-    // boolean hasBonusNumber, int hits 파라미터로 받아서
-    // Rank enum 으로 반환
-    private Rank decideRank(int hits, boolean hasBonusNumber) {
-        if (hits == Rank.FIRST.getHits()) {
-            return Rank.FIRST;
-        }
-        if (hits == Rank.SECOND.getHits()) {
-            if (hasBonusNumber) return Rank.SECOND;
-            return Rank.THIRD;
-        }
-        if (hits == Rank.FOURTH.getHits()) {
-            return Rank.FOURTH;
-        }
-        if (hits == Rank.FIFTH.getHits()) {
-            return Rank.FIFTH;
-        }
-        return Rank.NONE;
-    }
-
-    // 수익률 계산
     public double getRateOfReturn(int tickets, Result result) {
         int money = tickets * TICKET_PRICE;
-        int sumOfPrize = result.getResults().entrySet().stream()
+        int totalPrize = result.getResults().entrySet().stream()
                 .mapToInt(entry -> entry.getKey().getPrize() * entry.getValue())
                 .sum(); // 상금 합계
-        return ((double) (sumOfPrize - money) / money) * 100;
+        return (double) totalPrize / money * 100;
     }
 }
