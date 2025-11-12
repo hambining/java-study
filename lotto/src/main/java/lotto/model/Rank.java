@@ -23,4 +23,13 @@ public enum Rank {
     public int getPrize() {
         return prize;
     }
+
+    public static Rank getRank(int hits, boolean hasBonusNumber) {
+        if (hits == FIRST.getHits()) return FIRST;
+        if (hits == SECOND.getHits() && hasBonusNumber) return SECOND;
+        if (hits == THIRD.getHits() && !hasBonusNumber) return THIRD;
+        if (hits == FOURTH.getHits()) return FOURTH;
+        if (hits == FIFTH.getHits()) return FIFTH;
+        return NONE;
+    }
 }

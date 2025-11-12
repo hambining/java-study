@@ -1,8 +1,5 @@
 package lotto.view;
 
-import java.util.List;
-
-
 public enum Messages {
     ENTER_MONEY("구입금액을 입력해 주세요."),
     ENTER_WINNING_NUMBERS("당첨 번호를 입력해주세요."),
@@ -20,27 +17,7 @@ public enum Messages {
         this.message = message;
     }
 
-    public void println() {
-        System.out.println(message);
+    public String getMessage() {
+        return message;
     }
-
-    public void printf(int number) {
-        System.out.printf(message, number);
-        System.out.println();
-    }
-
-    public void println(List<Integer> lotto) {
-        System.out.println(lotto);
-    }
-
-    public void printf(int hits, int prize, int count) {
-        System.out.printf(message, hits, prize, count);
-        System.out.println();
-    }
-
-    public void printf(double rateOfReturn) {
-        System.out.printf(message, rateOfReturn);
-        System.out.println();
-    }
-
 }
