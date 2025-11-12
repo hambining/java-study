@@ -30,9 +30,9 @@ public class LottoService {
         for (Lotto lotto : lottos.getLottos()) {
             int hits = getHits(lotto.getNumbers(), winningNumbers.getNumbers());  // 맞은 개수 계산
             boolean hasBonusNumber = lotto.getNumbers().contains(bonusNumber);      // 보너스 번호 여부 계산
-            Rank rank = decideRank(hits, hasBonusNumber);                          // 등수 계산
             result.addResult(rank);                                                 // 결과 반환
         }
+                    return Rank.getRank(hits, hasBonusNumber);
 
         return result;
 
@@ -47,28 +47,6 @@ public class LottoService {
             }
         }
         return hits;
-    }
-
-    // 등수 계산
-    // boolean hasBonusNumber, int hits 파라미터로 받아서
-    // Rank enum 으로 반환
-    private Rank decideRank(int hits, boolean hasBonusNumber) {
-        if (hits == Rank.FIRST.getHits()) {
-            return Rank.FIRST;
-        }
-        if (hits == Rank.SECOND.getHits()) {
-            if (hasBonusNumber) return Rank.SECOND;
-            return Rank.THIRD;
-        }
-        if (hits == Rank.FOURTH.getHits()) {
-            return Rank.FOURTH;
-        }
-        if (hits == Rank.FIFTH.getHits()) {
-            return Rank.FIFTH;
-        }
-        return Rank.NONE;
-    }
-
     // 수익률 계산
     public double getRateOfReturn(int tickets, Result result) {
         int money = tickets * TICKET_PRICE;
