@@ -10,18 +10,20 @@ import static lotto.common.Constants.*;
 
 public class LottoService {
 
-    // 실행 횟수 return
-    public int getTickets(int money) {
-        Validation.validateMoney(money);
-        return money / TICKET_PRICE;
-    }
+    private final Store store;
+    private final LottoMachine lottoMachine;
 
-    // 로또 생성
-    public Lottos buyLotto(int tickets) {
-        return new Lottos(tickets);
+    public LottoService(Store store, LottoMachine lottoMachine) {
+        this.store = store;
+        this.lottoMachine = lottoMachine;
     }
 
     // 등수를 바탕으로 결과 return
+    public Lottos buyLottos(int money) {
+        int ticket = store.calculateTickets(money);
+        return lottoMachine.generateLottos(ticket);
+    }
+
     public Result getResult(Lottos lottos, WinningNumbers winningNumbers, int bonusNumber) {
         Result result = new Result();
 
