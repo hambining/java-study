@@ -38,16 +38,6 @@ public class LottoService {
 
     }
 
-    // 로또 번호 일치 개수 반환
-    private int getHits(List<Integer> lotto, List<Integer> winningNumbers) {
-        int hits = 0;
-        for (Integer lottoNumber : lotto) {
-            if (winningNumbers.contains(lottoNumber)) {
-                hits++;
-            }
-        }
-        return hits;
-    // 수익률 계산
     public double getRateOfReturn(int tickets, Result result) {
         int money = tickets * TICKET_PRICE;
         int sumOfPrize = result.getResults().entrySet().stream()

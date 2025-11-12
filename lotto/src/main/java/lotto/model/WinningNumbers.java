@@ -15,6 +15,12 @@ public class WinningNumbers extends AbstractNumbers {
         validateDuplicateNumbers(numbers);
     }
 
+    public int countHits(Lotto lotto) {
+        return (int) lotto.getNumbers().stream()
+                .filter(this.getNumbers()::contains)
+                .count();
+    }
+
     private void validateNumberRange(List<Integer> numbers) {
         if (numbers.stream().anyMatch(num -> num < LOTTO_BOUND_START || num > LOTTO_BOUND_END)) {
             throw new IllegalArgumentException(INVALID_RANGE.getMessage());
