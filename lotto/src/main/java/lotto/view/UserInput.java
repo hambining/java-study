@@ -4,20 +4,21 @@ import lotto.common.InputReader;
 import java.util.Scanner;
 
 public class UserInput {
-    Scanner sc = new Scanner(System.in);
+    private final Scanner sc = new Scanner(System.in);
+    private final LottoPrinter printer = new LottoPrinter();
 
     public int readMoney() {
-        Messages.ENTER_MONEY.println();
+        printer.printMessage(Messages.ENTER_MONEY);
         return Integer.parseInt(sc.nextLine());
     }
 
-        Messages.ENTER_WINNING_NUMBERS.println();
     public String readWinningNumbers() {
+        printer.printMessage(Messages.ENTER_WINNING_NUMBERS);
         return sc.nextLine();
     }
 
     public int readBonusNumber() {
-        Messages.ENTER_BONUS_NUMBER.println();
+        printer.printMessage(Messages.ENTER_BONUS_NUMBER);
         return Integer.parseInt(sc.nextLine());
     }
 
