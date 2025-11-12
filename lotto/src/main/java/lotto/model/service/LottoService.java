@@ -40,9 +40,9 @@ public class LottoService {
 
     public double getRateOfReturn(int tickets, Result result) {
         int money = tickets * TICKET_PRICE;
-        int sumOfPrize = result.getResults().entrySet().stream()
+        int totalPrize = result.getResults().entrySet().stream()
                 .mapToInt(entry -> entry.getKey().getPrize() * entry.getValue())
                 .sum(); // 상금 합계
-        return ((double) (sumOfPrize - money) / money) * 100;
+        return (double) totalPrize / money * 100;
     }
 }
