@@ -6,15 +6,13 @@ import java.util.List;
 
 public class WinningNumbers {
     private final List<Integer> numbers;
+public class WinningNumbers extends AbstractNumbers {
 
     public WinningNumbers(List<Integer> numbers) {
-        Validation.validateSize(numbers);
         Validation.validateDuplicateNumbers(numbers);
         Validation.validateNumberRange(numbers);
-        this.numbers = numbers;
+        super(numbers);
     }
 
-    public List<Integer> getNumbers() {
-        return numbers;
     }
 }
