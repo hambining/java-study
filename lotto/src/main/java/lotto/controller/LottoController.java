@@ -2,70 +2,57 @@ package lotto.controller;
 
 import lotto.model.*;
 import lotto.model.service.LottoService;
-import lotto.view.ErrorMessages;
-import lotto.view.Messages;
+import lotto.view.LottoPrinter;
 import lotto.view.UserInput;
-
-import java.util.Map;
 
 public class LottoController {
 
     private final UserInput userInput;
+    private final LottoPrinter lottoPrinter;
     private final LottoService lottoService;
 
     public LottoController() {
         this.userInput = new UserInput();
-        this.lottoService = new LottoService();
-
+        lottoPrinter = new LottoPrinter();
+        Store store = new Store();
+        LottoMachine lottoMachine = new LottoMachine();
+        this.lottoService = new LottoService(store, lottoMachine);
     }
 
     public void run() {
+        Lottos lottos = purchaseLotto();
 
-        // 구매 횟수 출력
-        int tickets = repeatUntilValid(() -> {
-            int money = userInput.readMoney();
-            return lottoService.getTickets(money);
-        });
-        Messages.TICKETS.printf(tickets);
+        WinningNumbers winningNumbers = inputWinningNumbers();
 
-        // 로또 번호 출력
-        Lottos lottos = lottoService.buyLotto(tickets);
-        lottos.getLottos().forEach(lotto -> Messages.LOTTO.println(lotto.getNumbers()));
+        BonusNumber bonusNumber = inputBonusNumber(winningNumbers);
 
-        // 당첨 번호
-        WinningNumbers winningNumbers = repeatUntilValid(
-                () -> new WinningNumbers(userInput.readWinningNumbers())
-        );
-
-        // 보너스 번호
-        BonusNumber bonusNumber = repeatUntilValid(
-                () -> new BonusNumber(userInput.readBonusNumber(), winningNumbers.getNumbers())
-        );
-
-        // 결과 불러오기
-        Result result = lottoService.getResult(lottos, winningNumbers, bonusNumber.getBonusNumber());
-
-        // 결과 출력
-        Messages.RESULT.println();
-        for (Map.Entry<Rank, Integer> entry : result.getResults().entrySet()) {
-            Rank rank = entry.getKey();
-            int count = entry.getValue();
-
-            printRank(rank, count);
-        }
-
-        // 수익률 계산 후 출력
-        double rateOfReturn = lottoService.getRateOfReturn(tickets, result);
-        Messages.RATE_OF_RETURN.printf(rateOfReturn);
-
+        showResult(lottos, winningNumbers, bonusNumber);
     }
 
-    private void printRank(Rank rank, int count) {
-        if (rank == Rank.NONE) return;
-        if (rank == Rank.SECOND) {
-            Messages.RESULT_WITH_BONUS_NUMBER.printf(rank.getHits(), rank.getPrize(), count);
-            return;
-        }
-        Messages.RESULT_DETAIL.printf(rank.getHits(), rank.getPrize(), count);
+    private Lottos purchaseLotto() {
+        int money = userInput.repeatUntilValid(userInput::readMoney);
+        Lottos lottos = lottoService.buyLottos(money);
+        lottoPrinter.printLottoTickets(lottos.getLottos().size());
+        lottoPrinter.printLottos(lottos);
+        return lottos;
+    }
+
+    private WinningNumbers inputWinningNumbers() {
+        return userInput.repeatUntilValid(
+                () -> lottoService.setWinningNumbers(userInput.readWinningNumbers()));
+    }
+
+    private BonusNumber inputBonusNumber(WinningNumbers winningNumbers) {
+        return userInput.repeatUntilValid(
+                () -> lottoService.setBonusNumber(userInput.readBonusNumber(), winningNumbers)
+        );
+    }
+
+    private void showResult(Lottos lottos, WinningNumbers winningNumbers, BonusNumber bonusNumber) {
+        Result result = lottoService.getResult(lottos, winningNumbers, bonusNumber.getBonusNumber());
+        lottoPrinter.printResult(result);
+
+        double rateOfReturn = lottoService.getRateOfReturn(lottos.getLottos().size(), result);
+        lottoPrinter.printRateOfReturn(rateOfReturn);
     }
 }

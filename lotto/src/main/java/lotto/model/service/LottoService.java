@@ -1,6 +1,6 @@
 package lotto.model.service;
 
-import lotto.common.Validation;
+import lotto.common.InputParser;
 import lotto.model.*;
 import lotto.model.Rank;
 
@@ -18,10 +18,18 @@ public class LottoService {
         this.lottoMachine = lottoMachine;
     }
 
-    // 등수를 바탕으로 결과 return
     public Lottos buyLottos(int money) {
         int ticket = store.calculateTickets(money);
         return lottoMachine.generateLottos(ticket);
+    }
+
+    public WinningNumbers setWinningNumbers(String input) {
+        List<Integer> numbers = InputParser.parseNumbers(input, SEPARATOR);
+        return new WinningNumbers(numbers);
+    }
+
+    public BonusNumber setBonusNumber(int bonusNumber, WinningNumbers winningNumbers) {
+        return new BonusNumber(bonusNumber, winningNumbers.getNumbers());
     }
 
     public Result getResult(Lottos lottos, WinningNumbers winningNumbers, int bonusNumber) {
