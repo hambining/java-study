@@ -1,6 +1,5 @@
 package lotto.controller;
 
-import lotto.common.InputReader;
 import lotto.model.*;
 import lotto.model.service.LottoService;
 import lotto.view.ErrorMessages;
@@ -59,16 +58,6 @@ public class LottoController {
         double rateOfReturn = lottoService.getRateOfReturn(tickets, result);
         Messages.RATE_OF_RETURN.printf(rateOfReturn);
 
-    }
-
-    private <T> T repeatUntilValid(InputReader<T> reader) {
-        while (true) {
-            try {
-                return reader.read();
-            } catch (IllegalArgumentException e) {
-                ErrorMessages.println(e.getMessage());
-            }
-        }
     }
 
     private void printRank(Rank rank, int count) {

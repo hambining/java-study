@@ -1,9 +1,6 @@
 package lotto.view;
 
-import lotto.common.Constants;
-
-import java.util.Arrays;
-import java.util.List;
+import lotto.common.InputReader;
 import java.util.Scanner;
 
 public class UserInput {
@@ -25,6 +22,16 @@ public class UserInput {
     public int readBonusNumber() {
         Messages.ENTER_BONUS_NUMBER.println();
         return Integer.parseInt(sc.nextLine());
+    }
+
+    public <T> T repeatUntilValid(InputReader<T> reader) {
+        while (true) {
+            try {
+                return reader.read();
+            } catch (IllegalArgumentException e) {
+                ErrorMessages.println(e.getMessage());
+            }
+        }
     }
 
 }
